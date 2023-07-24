@@ -1,16 +1,20 @@
 import data from './data';
-
-const Stats = ({ title, stats }) => {
+import cl from './Stats.module.css';
+const Stats = ({ key, title, stats }) => {
   return (
-    <section class="statistics">
+    <section className={cl.stats}>
       {title && <h2>{title}</h2>}
 
-      <ul class="stat-list">
-        {data.map(({ label, percentage }) => {
+      <ul className={cl.list}>
+        {data.map(({ id, label, percentage }) => {
           return (
-            <li class="item">
-              <span class="label">{label}</span>
-              <span class="percentage">{percentage}%</span>
+            <li
+              key={id}
+              className={cl.item}
+              style={{ backgroundColor: getRandomHexColor() }}
+            >
+              <span className={cl.label}>{label}</span>
+              <span className={cl.percentage}>{percentage}%</span>
             </li>
           );
         })}
@@ -18,5 +22,11 @@ const Stats = ({ title, stats }) => {
     </section>
   );
 };
-console.log(data);
+
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, 0)}`;
+}
+
 export default Stats;

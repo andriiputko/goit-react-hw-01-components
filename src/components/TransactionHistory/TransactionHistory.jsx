@@ -1,25 +1,28 @@
 import transactions from './transactions';
+import cl from './TransactionHistory.module.css';
 const TransactionHistory = ({ items }) => {
   return (
-    <table class="transaction-history">
-      <thead>
+    <table className={cl.transactions}>
+      <thead className={cl.tableHead}>
         <tr>
-          <th>Type</th>
-          <th>Amount</th>
-          <th>Currency</th>
+          <th className={cl.tableHeading}>Type</th>
+          <th className={cl.tableHeading}>Amount</th>
+          <th className={cl.tableHeading}>Currency</th>
         </tr>
       </thead>
-      {transactions.map(({ type, amount, currency }) => {
-        return (
-          <tbody>
-            <tr>
-              <td>{type}</td>
-              <td>{amount}</td>
-              <td>{currency}</td>
+
+      <tbody className={cl.tableBody}>
+        {transactions.map(({ id, type, amount, currency }) => {
+          console.log(id);
+          return (
+            <tr key={id} className={cl.tableRow}>
+              <td className={cl.tableData}> {type}</td>
+              <td className={cl.tableData}> {amount}</td>
+              <td className={cl.tableData}> {currency}</td>
             </tr>
-          </tbody>
-        );
-      })}
+          );
+        })}
+      </tbody>
     </table>
   );
 };
