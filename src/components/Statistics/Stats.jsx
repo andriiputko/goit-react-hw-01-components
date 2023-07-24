@@ -1,6 +1,7 @@
-import data from './data';
+import data from '../../data/data';
 import cl from './Stats.module.css';
-const Stats = ({ key, title, stats }) => {
+import PropTypes from 'prop-types';
+const Stats = ({ title, stats }) => {
   return (
     <section className={cl.stats}>
       {title && <h2>{title}</h2>}
@@ -28,5 +29,10 @@ function getRandomHexColor() {
     .toString(16)
     .padStart(6, 0)}`;
 }
+
+Stats.propTypes = {
+  title: PropTypes.string,
+  stats: PropTypes.array,
+};
 
 export default Stats;

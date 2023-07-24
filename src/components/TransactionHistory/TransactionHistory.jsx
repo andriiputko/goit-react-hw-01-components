@@ -1,5 +1,6 @@
-import transactions from './transactions';
+import transactions from '../../data/transactions';
 import cl from './TransactionHistory.module.css';
+import PropTypes from 'prop-types';
 const TransactionHistory = ({ items }) => {
   return (
     <table className={cl.transactions}>
@@ -13,7 +14,6 @@ const TransactionHistory = ({ items }) => {
 
       <tbody className={cl.tableBody}>
         {transactions.map(({ id, type, amount, currency }) => {
-          console.log(id);
           return (
             <tr key={id} className={cl.tableRow}>
               <td className={cl.tableData}> {type}</td>
@@ -25,6 +25,10 @@ const TransactionHistory = ({ items }) => {
       </tbody>
     </table>
   );
+};
+
+TransactionHistory.propTypes = {
+  items: array,
 };
 
 export default TransactionHistory;

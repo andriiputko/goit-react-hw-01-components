@@ -1,6 +1,7 @@
-import friends from './friends';
+import friends from '../../data/friends';
 import FriendsListItem from 'components/FriendsListItem/';
 import cl from '../FriendsListItem/FriendsListItem.module.css';
+import PropTypes from 'prop-types';
 const FriendsList = () => {
   return (
     <ul className={cl.list}>
@@ -10,12 +11,19 @@ const FriendsList = () => {
             avatar={avatar}
             name={name}
             isOnline={isOnline}
-            key={friends.id}
+            key={id}
           />
         );
       })}
     </ul>
   );
+};
+
+FriendsListItem.propTypes = {
+  avatar: PropTypes.string,
+  name: PropTypes.string,
+  isOnline: PropTypes.bool,
+  id: PropTypes.number,
 };
 
 export default FriendsList;

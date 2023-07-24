@@ -1,14 +1,11 @@
-import user from './user.json';
+import user from '../../data/user';
 import cl from './Profile.module.css';
+import PropTypes from 'prop-types';
 const Profile = ({ username, tag, location, avatar, stats }) => {
   return (
     <div className={cl.container} key={user.index}>
       <div className={cl.card}>
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png"
-          alt="User avatar"
-          className={cl.avatar}
-        />
+        <img src={user.avatar} alt="User avatar" className={cl.avatar} />
         <p className={cl.username}>{user.username}</p>
         <p className={cl.tag}>@{user.tag}</p>
         <p className={cl.location}>{user.location}</p>
@@ -17,11 +14,11 @@ const Profile = ({ username, tag, location, avatar, stats }) => {
       <ul className={cl.stats}>
         <li className={cl.li}>
           <span className={cl.label}>Followers</span>
-          <span clasName={cl.quantity}>{user.stats.followers}</span>
+          <span className={cl.quantity}>{user.stats.followers}</span>
         </li>
         <li className={cl.li}>
           <span className={cl.label}>Views</span>
-          <span clasName={cl.quantity}>{user.stats.views}</span>
+          <span className={cl.quantity}>{user.stats.views}</span>
         </li>
         <li className={cl.li}>
           <span className={cl.label}>Likes</span>
@@ -31,4 +28,13 @@ const Profile = ({ username, tag, location, avatar, stats }) => {
     </div>
   );
 };
+
+Profile.propTypes = {
+  username: PropTypes.string,
+  tag: PropTypes.string,
+  location: PropTypes.string,
+  avatar: PropTypes.string,
+  stats: PropTypes.object,
+};
+
 export default Profile;
