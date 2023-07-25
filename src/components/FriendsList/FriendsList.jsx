@@ -2,7 +2,7 @@ import friends from '../../data/friends';
 import FriendsListItem from 'components/FriendsListItem/';
 import cl from '../FriendsListItem/FriendsListItem.module.css';
 import PropTypes from 'prop-types';
-const FriendsList = () => {
+const FriendsList = ({ friends }) => {
   return (
     <ul className={cl.list}>
       {friends.map(({ avatar, name, isOnline, id }) => {
@@ -19,11 +19,8 @@ const FriendsList = () => {
   );
 };
 
-FriendsListItem.propTypes = {
-  avatar: PropTypes.string,
-  name: PropTypes.string,
-  isOnline: PropTypes.bool,
-  id: PropTypes.number,
+FriendsList.propTypes = {
+  friends: PropTypes.array,
 };
 
 export default FriendsList;

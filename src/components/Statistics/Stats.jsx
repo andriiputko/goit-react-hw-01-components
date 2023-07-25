@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Stats = ({ title, stats }) => {
   return (
     <section className={cl.stats}>
-      {title && <h2>{title}</h2>}
+      {title && <h2 className={cl.heading}>{title}</h2>}
 
       <ul className={cl.list}>
         {data.map(({ id, label, percentage }) => {

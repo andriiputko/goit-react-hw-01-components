@@ -10,6 +10,11 @@
     padding-left: 0;
 }
 
+.heading {
+    color: rgb(168, 159, 159);
+    text-align: center;
+}
+
 .item {
     display: flex;
     flex-direction: column;
