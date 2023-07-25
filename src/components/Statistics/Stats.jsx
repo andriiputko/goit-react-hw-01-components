@@ -1,4 +1,3 @@
-import data from '../../data/data';
 import cl from './Stats.module.css';
 import PropTypes from 'prop-types';
 const Stats = ({ title, stats }) => {
@@ -7,7 +6,7 @@ const Stats = ({ title, stats }) => {
       {title && <h2 className={cl.heading}>{title}</h2>}
 
       <ul className={cl.list}>
-        {data.map(({ id, label, percentage }) => {
+        {stats.map(({ id, label, percentage }) => {
           return (
             <li
               key={id}

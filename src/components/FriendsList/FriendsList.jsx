@@ -1,4 +1,3 @@
-import friends from '../../data/friends';
 import FriendsListItem from 'components/FriendsListItem/';
 import cl from '../FriendsListItem/FriendsListItem.module.css';
 import PropTypes from 'prop-types';

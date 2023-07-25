@@ -1,28 +1,27 @@
-import user from '../../data/user';
 import cl from './Profile.module.css';
 import PropTypes from 'prop-types';
 const Profile = ({ username, tag, location, avatar, stats }) => {
   return (
-    <div className={cl.container} key={user.index}>
+    <div className={cl.container} key={stats.index}>
       <div className={cl.card}>
-        <img src={user.avatar} alt="User avatar" className={cl.avatar} />
-        <p className={cl.username}>{user.username}</p>
-        <p className={cl.tag}>@{user.tag}</p>
-        <p className={cl.location}>{user.location}</p>
+        <img src={stats.avatar} alt="User avatar" className={cl.avatar} />
+        <p className={cl.username}>{stats.username}</p>
+        <p className={cl.tag}>@{stats.tag}</p>
+        <p className={cl.location}>{stats.location}</p>
       </div>
 
       <ul className={cl.stats}>
         <li className={cl.li}>
           <span className={cl.label}>Followers</span>
-          <span className={cl.quantity}>{user.stats.followers}</span>
+          <span className={cl.quantity}>{stats.stats.followers}</span>
         </li>
         <li className={cl.li}>
           <span className={cl.label}>Views</span>
-          <span className={cl.quantity}>{user.stats.views}</span>
+          <span className={cl.quantity}>{stats.stats.views}</span>
         </li>
         <li className={cl.li}>
           <span className={cl.label}>Likes</span>
-          <span className={cl.quantity}>{user.stats.likes}</span>
+          <span className={cl.quantity}>{stats.stats.likes}</span>
         </li>
       </ul>
     </div>
